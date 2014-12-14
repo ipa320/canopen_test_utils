@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>canopen_test_utils</name>
+  <version>0.0.0</version>
+  <description>The canopen_test_utils package</description>
+
+  <maintainer email="mathias.luedtke@ipa.fraunhofer.de">Mathias Lüdtke</maintainer>
+  <license>LGPLv3</license>
+
+  <!-- Url tags are optional, but mutiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <!-- Example: -->
+  <!-- <url type="website">http://wiki.ros.org/canopen_master</url> -->
+
+
+  <!-- Author tags are optional, mutiple are allowed, one per tag -->
+  <!-- Authors do not have to be maintianers, but could be -->
+  <!-- Example: -->
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>canopen_master</depend>
+  <depend>canopen_402</depend>
+  <depend>roslaunch</depend>
+  <exec_depend>canopen_motor_node</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+
+  <export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
