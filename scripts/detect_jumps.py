@@ -3,7 +3,10 @@
 import sys
 from collections import defaultdict, deque
 import traceback
+from itertools import ifilterfalse
 
+def hex_reverse(data):
+    return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
 
 def hex_with_len(val, l):
     return '{0:0{1}x}'.format(val,l)
@@ -39,23 +42,19 @@ formats = defaultdict(lambda:(signed, thresh(10000)),mapping={
 context = deque(maxlen=20)
 dump_mode = 0
 
-def dump_context(p, context, mode):
+def dump_context(v, context, mode):
     if mode is 1:
         for c in context:
             print c
     elif mode is 2:
-        s = p[-1][0]
-        test = frozenset(s[i:i + 2] for i in range(0, len(s), 2))
-        f = 0
+        s = hex_reverse(v)
+        test = frozenset(ifilterfalse(lambda t: '0000' == t, (s[i:i + 4] for i in range(0, len(s)-2, 2))))
         for c in context:
-            s = c[-1][0]
-            for i in range(0, len(s), 2):
-                if s[i:i + 2] in test:
-                    if f is 0:
-                        f = 1
-                    else:
-                        print '**',
-                        break
+            o = c[-1][0]
+            for i in range(0, len(o)-2, 2):
+                if o[i:i + 4] in test:
+                    print '**', o[i:i + 4],
+                    break
             print c
     else:
         print "Error: dump mode not set!"
@@ -74,20 +73,18 @@ while True:
             while len(d) > 1:
                 k,v,d = d[0], d[1], d[2:]
                 fmt, jump = formats[k]
-                dump=False
                 val = fmt(v, len(v), True)
                 if k in last[i]:
                     old = last[i][k]
-                    if jump(val,last[i][k]):
-                        dump=True
+                    last[i][k]=val
+                    if jump(val, old):
                         print 't: {}, i: {}, {} = 0x{} <> 0x{}, {} <> {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old)
-                        del last[i][k]
-                if dump:
-                    dump_context(p, context, dump_mode)
+                        print '#',p
+                        dump_context(v, context, dump_mode)
+                        del last[i][k] # do not detect back-jump
                 else:
                     last[i][k]=val
-
-        context.append((p))
+        context.append(p)
     except:
         print line,
         traceback.print_exc()
