@@ -126,4 +126,4 @@ for line in sys.stdin:
     else:
         can_id = int(parts[start+1],16)
         data = ''.join(parts[start+3:])
-    print parts[:start+1] + decode_canopen(can_id,data)
+    print parts[:start+1] + decode_canopen(can_id,data) + [(data,)]
