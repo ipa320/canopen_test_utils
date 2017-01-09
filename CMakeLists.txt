@@ -27,6 +27,17 @@ install(
 )
 
 install(
+  PROGRAMS
+    scripts/detect_jumps.py
+    scripts/elmo_mapping.py
+    scripts/pdo.py
+    scripts/readable.py
+    scripts/schunk_mapping.py
+    scripts/socket_buffer.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(
   DIRECTORY
     config
     launch
