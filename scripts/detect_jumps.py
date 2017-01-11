@@ -81,7 +81,6 @@ while True:
                         print 't: {}, i: {}, {} = 0x{} <> 0x{}, {} <> {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old)
                         print '#',p
                         dump_context(v, context, dump_mode)
-                        del last[i][k] # do not detect back-jump
                 else:
                     last[i][k]=val
         context.append(p)
