@@ -28,6 +28,7 @@ install(
 
 install(
   PROGRAMS
+    scripts/check_sync.py
     scripts/detect_jumps.py
     scripts/elmo_mapping.py
     scripts/pdo.py
