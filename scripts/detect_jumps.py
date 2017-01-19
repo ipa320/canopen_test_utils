@@ -34,9 +34,12 @@ def thresh(t):
 
 last = defaultdict(dict)
 
-formats = defaultdict(lambda:(signed, thresh(10000)),mapping={
-    'status_word': (unsigned, lambda a,b: bin(a ^ b).count('1') > 1), 
+formats = defaultdict(lambda:(signed, thresh(10000)),{
+    'status_word': (unsigned, lambda a,b: bin(a ^ b).count('1') > 2), 
     'op_mode_display': (unsigned, lambda a,b: False), # ignore
+    'timestamp': (unsigned, lambda a,b: False), # ignore
+    'velocity': (signed, thresh(11000)),
+    'actual_velocity': (signed, thresh(30000)),
 })
 
 context = deque(maxlen=20)
