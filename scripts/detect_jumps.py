@@ -81,7 +81,7 @@ while True:
                     old = last[i][k]
                     last[i][k]=val
                     if jump(val, old):
-                        print 't: {}, i: {}, {} = 0x{} <> 0x{}, {} <> {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old)
+                        print 't: {}, i: {}, {} = 0x{} <> 0x{}, |{} - {}| = {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old, abs(val-old))
                         print '#',p
                         dump_context(v, context, dump_mode)
                 else:
