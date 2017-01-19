@@ -57,23 +57,23 @@ while True:
             d = p[4:]
             while len(d) > 1:
                 k,v,d = d[0], d[1], d[2:]
-                if k in current_data[i]:
+                if k in current_data[i] and len(sync_data) > 0:
                     print "!!!! ({}) @ {:.6f} doubled data '{}' from {}".format(now, t, k, i)
                     force_print = True
-                else:
-                    current_data[i].add(k)
+                current_data[i].add(k)
                 known_data.add(k)
             known_nodes.add(i)
-        if (last_clock is not None and (now - last_print_clock) > 10) or (t is not None and (t - last_print_t) > 10) or force_print:
+        if len(sync_data) > 0 and ((now - last_print_clock) > 10 or (t is not None and (t - last_print_t) > 10) or force_print):
             printSyncStats(sync_data, last_clock - now)
             last_print_clock = now
             last_print_t = t
             last_print_counter = sync_maxlen
+            force_print = False
 
     except:
         print line,
         traceback.print_exc()
-        break
+        exit(1)
 
-printSyncStats(sync_data, last_sync[1] - now)
+printSyncStats(sync_data, last_sync[1] - time.clock())
 
