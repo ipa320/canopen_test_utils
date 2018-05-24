@@ -2,14 +2,17 @@
 sudo: required 
 dist: trusty 
 language: generic 
-compiler:
-  - gcc
+
 env:
   matrix:
-    - USE_DEB=true  ROS_DISTRO="indigo" ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
-    - USE_DEB=true  ROS_DISTRO="indigo" ROS_REPOSITORY_PATH=http://packages.ros.org/ros-shadow-fixed/ubuntu
+    - ROS_DISTRO="indigo"  ROS_REPO=ros
+    - ROS_DISTRO="indigo"  ROS_REPO=ros-shadow-fixed
+    - ROS_DISTRO="kinetic" ROS_REPO=ros
+    - ROS_DISTRO="kinetic" ROS_REPO=ros-shadow-fixed
+
 install:
-  - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config  
+  - git clone --depth=1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci
+
 script: 
-  - source .ci_config/travis.sh
+  - .industrial_ci/travis.sh
   
