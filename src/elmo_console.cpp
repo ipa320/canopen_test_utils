@@ -1,5 +1,4 @@
 #include <canopen_master/canopen.h>
-#include <canopen_master/master.h>
 #include <boost/make_shared.hpp>
 #include <iostream>
 
