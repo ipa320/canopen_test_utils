@@ -31,6 +31,7 @@ catkin_install_python(
     scripts/check_sync.py
     scripts/detect_jumps.py
     scripts/elmo_mapping.py
+    scripts/nanotec_mapping.py
     scripts/old_elmo_mapping.py
     scripts/old_schunk_mapping.py
     scripts/pdo.py
