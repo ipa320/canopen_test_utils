@@ -2,8 +2,8 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.0 (2019-08-13)
+------------------
 * add missing tag in changelog
 * Merge pull request `#7 <https://github.com/ipa320/canopen_test_utils/issues/7>`_ from benmaidel/feature/melodify
   [Melodic] melodify
