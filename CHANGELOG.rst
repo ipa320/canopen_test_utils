@@ -2,6 +2,17 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add missing tag in changelog
+* Merge pull request `#7 <https://github.com/ipa320/canopen_test_utils/issues/7>`_ from benmaidel/feature/melodify
+  [Melodic] melodify
+* removed indigo checks
+* add melodic checks
+* using ros_canopen shared_pointer types
+* added hardware_interface prefix
+* Contributors: Benjamin Maidel, Felix Messmer, fmessmer
+
 0.6.5 (2015-03-14)
 ------------------
 
