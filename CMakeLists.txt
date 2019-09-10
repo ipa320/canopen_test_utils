@@ -32,6 +32,7 @@ install(
     scripts/detect_jumps.py
     scripts/elmo_mapping.py
     scripts/pdo.py
+    scripts/pub_pdo.py
     scripts/readable.py
     scripts/schunk_mapping.py
     scripts/socket_buffer.py
