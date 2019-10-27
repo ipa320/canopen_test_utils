@@ -1,6 +1,11 @@
 # canopen_test_utils
 Various helper scripts and test setups for testing and maintaining CANopen chains.
 
+
+## Travis - Continuous Integration
+
+Status: [![Build Status](https://travis-ci.com/ipa320/canopen_test_utils.svg?branch=kinetic-devel)](https://travis-ci.com/ipa320/canopen_test_utils)
+
 ## Referencing elmos with canopen_elmo_console
 Stop bringup
 
