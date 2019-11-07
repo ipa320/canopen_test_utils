@@ -2,8 +2,8 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.1 (2019-11-07)
+------------------
 * Merge pull request `#9 <https://github.com/ipa320/canopen_test_utils/issues/9>`_ from ipa320/floweisshardt-patch-1
   migrate to travis-com
 * migrate to travis-com
