@@ -2,6 +2,16 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#9 <https://github.com/ipa320/canopen_test_utils/issues/9>`_ from ipa320/floweisshardt-patch-1
+  migrate to travis-com
+* migrate to travis-com
+* Merge pull request `#8 <https://github.com/ipa320/canopen_test_utils/issues/8>`_ from benmaidel/feature/publish_pdos_script
+  added script to publish pdo's as ros messages
+* added script to publish pdo's
+* Contributors: Benjamin Maidel, Felix Messmer, Florian Weisshardt
+
 0.7.0 (2019-08-13)
 ------------------
 * add missing tag in changelog
