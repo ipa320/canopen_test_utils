@@ -26,16 +26,25 @@ install(
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(
+catkin_install_python(
   PROGRAMS
     scripts/check_sync.py
     scripts/detect_jumps.py
     scripts/elmo_mapping.py
+    scripts/old_elmo_mapping.py
+    scripts/old_schunk_mapping.py
     scripts/pdo.py
     scripts/pub_pdo.py
     scripts/readable.py
     scripts/schunk_mapping.py
     scripts/socket_buffer.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(
+  PROGRAMS
+    scripts/prepare.sh
+    scripts/runtest.sh
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
