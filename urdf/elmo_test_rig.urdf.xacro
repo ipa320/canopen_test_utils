@@ -6,18 +6,18 @@
   <xacro:include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
   <xacro:include filename="$(find canopen_test_utils)/urdf/elmo_test_rig.transmission.xacro" />
 
-  <property name="base_height" value="0.04" />
-  <property name="base_radius" value="0.01" />
-  <property name="plate_height" value="0.01" />
-  <property name="plate_radius" value="0.03" />
-  <property name="indicator_height" value="0.001" />
+  <xacro:property name="base_height" value="0.04" />
+  <xacro:property name="base_radius" value="0.01" />
+  <xacro:property name="plate_height" value="0.01" />
+  <xacro:property name="plate_radius" value="0.03" />
+  <xacro:property name="indicator_height" value="0.001" />
 
   <xacro:macro name="elmo_test_rig" params="prefix parent *origin">
 
     <joint name="${prefix}base_joint" type="fixed">
       <parent link="${parent}" />
       <child link = "${prefix}base_link" />
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
     </joint>
     
     <link name="${prefix}base_link" >
