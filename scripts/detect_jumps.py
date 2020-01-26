@@ -3,10 +3,10 @@
 import sys
 from collections import defaultdict, deque
 import traceback
-from itertools import ifilterfalse
+from itertools import filterfalse
 
 def hex_reverse(data):
-    return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
+    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
 
 def hex_with_len(val, l):
     return '{0:0{1}x}'.format(val,l)
@@ -48,20 +48,20 @@ dump_mode = 0
 def dump_context(v, context, mode):
     if mode is 1:
         for c in context:
-            print c
+            print(c)
     elif mode is 2:
         s = hex_reverse(v)
-        test = frozenset(ifilterfalse(lambda t: '0000' == t, (s[i:i + 4] for i in range(0, len(s)-2, 2))))
+        test = frozenset(filterfalse(lambda t: '0000' == t, (s[i:i + 4] for i in range(0, len(s)-2, 2))))
         for c in context:
             o = c[-1][0]
             for i in range(0, len(o)-2, 2):
                 if o[i:i + 4] in test:
-                    print '**', o[i:i + 4],
+                    print('**', o[i:i + 4], end=' ')
                     break
-            print c
+            print(c)
     else:
-        print "Error: dump mode not set!"
-    print
+        print("Error: dump mode not set!")
+    print()
 while True:
     try:
         line = sys.stdin.readline()
@@ -81,13 +81,13 @@ while True:
                     old = last[i][k]
                     last[i][k]=val
                     if jump(val, old):
-                        print 't: {}, i: {}, {} = 0x{} <> 0x{}, |{} - {}| = {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old, abs(val-old))
-                        print '#',p
+                        print('t: {}, i: {}, {} = 0x{} <> 0x{}, |{} - {}| = {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old, abs(val-old)))
+                        print('#',p)
                         dump_context(v, context, dump_mode)
                 else:
                     last[i][k]=val
         context.append(p)
     except:
-        print line,
+        print(line, end=' ')
         traceback.print_exc()
         break

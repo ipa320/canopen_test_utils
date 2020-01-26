@@ -23,8 +23,8 @@ def printSyncStats(sync_data, diff):
     mx = max(sync_data) / milliseconds
     avg = sum(sync_data) / len(sync_data)
     hz = 1.0/avg if avg != 0 else 0
-    print "({}) {} Hz [ {} ms <= {} ms <= {} ms ] {} ms".format(time.time(), hz, mn, avg / milliseconds, mx, diff / milliseconds)
-    print
+    print("({}) {} Hz [ {} ms <= {} ms <= {} ms ] {} ms".format(time.time(), hz, mn, avg / milliseconds, mx, diff / milliseconds))
+    print()
 
 while True:
     try:
@@ -40,9 +40,9 @@ while True:
         if 'SYNC' in line:
             if last_t is not None:
                 sync_data.append(t-last_t)
-                missing_nodes = known_nodes - set(current_data.iterkeys())
+                missing_nodes = known_nodes - set(current_data.keys())
                 if len(missing_nodes) > 0:
-                    print "!!!! ({}) @ {:.6f} missing data from {}".format(now, t, missing_nodes)
+                    print("!!!! ({}) @ {:.6f} missing data from {}".format(now, t, missing_nodes))
                 #for k,v in current_data.items():
                 #    missig_data = known_data - v
                 #    if len(missig_data) > 0:
@@ -58,7 +58,7 @@ while True:
             while len(d) > 1:
                 k,v,d = d[0], d[1], d[2:]
                 if k in current_data[i] and len(sync_data) > 0:
-                    print "!!!! ({}) @ {:.6f} doubled data '{}' from {}".format(now, t, k, i)
+                    print("!!!! ({}) @ {:.6f} doubled data '{}' from {}".format(now, t, k, i))
                     force_print = True
                 current_data[i].add(k)
                 known_data.add(k)
@@ -71,7 +71,7 @@ while True:
             force_print = False
 
     except:
-        print line,
+        print(line, end=' ')
         traceback.print_exc()
         exit(1)
 
