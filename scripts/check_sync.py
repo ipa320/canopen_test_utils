@@ -71,7 +71,7 @@ while True:
             force_print = False
 
     except:
-        print(line, end=' ')
+        print(line)
         traceback.print_exc()
         exit(1)
 

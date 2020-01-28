@@ -88,7 +88,7 @@ def patch_all(fname,out, pdos):
     ini.readfp(open(fname))
 
     for (k,v) in list(pdos.items()):
-        parts = k.split("PDO");
+        parts = k.split("PDO")
         objs =  [ o[0] for o in v[1:] ]
         set_pdo(ini, parts[0] == "R", int(parts[1])-1, objs, v[0])
     ini.write(open(out,'w'), False)
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     parser.add_argument("--transmission", type=lambda x:int(x,0),default=1)
     parser.add_argument("--out")
 
-    args = parser.parse_args(args)
+    args = parser.parse_args()
 
 
     out = args.out

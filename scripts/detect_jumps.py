@@ -88,6 +88,6 @@ while True:
                     last[i][k]=val
         context.append(p)
     except:
-        print(line, end=' ')
+        print(line)
         traceback.print_exc()
         break
