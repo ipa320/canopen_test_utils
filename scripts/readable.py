@@ -2,13 +2,13 @@
 import sys, importlib
 
 if len(sys.argv) < 2:
-    print("please provide mapping modulde as first argument, e.g schunk_mapping or elmo_mapping");
+    print("please provide mapping modulde as first argument, e.g schunk_mapping or elmo_mapping")
     exit()
 
 PDOs = importlib.import_module(sys.argv[1]).PDOs
 
 def hex_reverse(data):
-    return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
+    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
     
 def decode_state(can_id,data):
     state = int(data[0:2],16)
@@ -73,7 +73,6 @@ def decode_sdo(can_id,data, name, start_can_id):
 
 def decode_emcy(can_id,data):
     return [ "EMCY", can_id - 0x80,  "EEC:", hex_reverse(data[0:4]), "Reg:", data[4:6],"Msef: ",data[6:16]]
-    pass
     
 def decode_canopen(can_id,data):
     if can_id == 0:
@@ -126,4 +125,4 @@ for line in sys.stdin:
     else:
         can_id = int(parts[start+1],16)
         data = ''.join(parts[start+3:])
-    print parts[:start+1] + decode_canopen(can_id,data) + [(data,)]
+    print(parts[:start+1] + decode_canopen(can_id,data) + [(data,)])
