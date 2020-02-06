@@ -22,7 +22,7 @@ def to_hex(value, digits):
 
 def get_mapping(ini, name, writable):
     if not ini[name].getboolean("PDOMapping"):
-        print(name, "is not mappable")
+        print (name, "is not mappable")
         exit(1)
     try:
         can_write = 'w' in ini[name]["AccessType"]
@@ -34,7 +34,7 @@ def get_mapping(ini, name, writable):
     except:
         can_read = False
     if (writable and not can_write) or (not writable and not can_read):
-        print(name, "is not accesable")
+        print (name, "is not accesable")
         exit(1)
             
     parts = name.split("sub")
@@ -50,7 +50,7 @@ def set_pdo(ini, writable, nr, objs, transmission):
     mapobj = to_hex(nr + (0x1600 if writable else 0x1A00), 4).upper()
 
     if not comobj in ini or not mapobj in ini:
-        print(writable , nr , " is invalid")
+        print (writable , nr , " is invalid")
         exit(1)
     mapping = []
     bits = 0
@@ -87,8 +87,8 @@ def patch_all(fname,out, pdos):
     ini.optionxform = lambda option: option
     ini.readfp(open(fname))
 
-    for (k,v) in list(pdos.items()):
-        parts = k.split("PDO")
+    for (k,v) in pdos.items():
+        parts = k.split("PDO");
         objs =  [ o[0] for o in v[1:] ]
         set_pdo(ini, parts[0] == "R", int(parts[1])-1, objs, v[0])
     ini.write(open(out,'w'), False)
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     parser.add_argument("--transmission", type=lambda x:int(x,0),default=1)
     parser.add_argument("--out")
 
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
 
     out = args.out
