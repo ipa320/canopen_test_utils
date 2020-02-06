@@ -4,7 +4,7 @@ import rospy
 from std_msgs.msg import Int16
 
 if len(sys.argv) < 2:
-    print("please provide mapping modulde as first argument, e.g schunk_mapping or elmo_mapping")
+    print("please provide mapping modulde as first argument, e.g schunk_mapping or elmo_mapping");
     exit()
 
 PDOs = importlib.import_module(sys.argv[1]).PDOs
@@ -23,7 +23,7 @@ def hex_to_signed(source):
     if not isinstance(source, str):
         raise ValueError("string type required")
     if 0 == len(source):
-        raise ValueError("string is empty")
+        raise valueError("string is empty")
     sign_bit_mask = 1 << (len(source)*4-1)
     other_bits_mask = sign_bit_mask - 1
     value = int(source, 16)
@@ -32,14 +32,14 @@ def hex_to_signed(source):
 def pub(name, value):
     global pubs
     if not name in pubs:
-        print("adding publisher: ",name)
+        print "adding publisher: ",name
         pubs[name] = rospy.Publisher(name, Int16, queue_size=1000)
     msg = Int16()
     msg.data = hex_to_signed(value)
     pubs[name].publish(msg)
 
 def hex_reverse(data):
-    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
+    return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
 
 def decode_pdo(can_id,data, name, start_can_id):
     i = 0
