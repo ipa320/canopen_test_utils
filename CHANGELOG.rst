@@ -2,8 +2,8 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.2 (2020-03-18)
+------------------
 * Merge pull request `#12 <https://github.com/ipa320/canopen_test_utils/issues/12>`_ from fmessmer/fix_travis_config
   [ci_updates] pylint + Python3 compatibility
 * fix .travis.yml
