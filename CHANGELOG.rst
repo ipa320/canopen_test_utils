@@ -2,6 +2,25 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#12 <https://github.com/ipa320/canopen_test_utils/issues/12>`_ from fmessmer/fix_travis_config
+  [ci_updates] pylint + Python3 compatibility
+* fix .travis.yml
+* Revert "[ci_updates] pylint + Python3 compatibility"
+* Merge pull request `#11 <https://github.com/ipa320/canopen_test_utils/issues/11>`_ from fmessmer/feature/python3_compatibility
+  [ci_updates] pylint + Python3 compatibility
+* fix pylint errors
+* python3 compatibility via 2to3
+* activate pylint checks from feature branch
+* Merge pull request `#10 <https://github.com/ipa320/canopen_test_utils/issues/10>`_ from fmessmer/ci_updates
+  [travis] ci updates
+* fix xacro deprecation and namespace
+* add CATKIN_LINT=pedantic
+* update travis.yml
+* catkin_lint fixes
+* Contributors: Felix Messmer, fmessmer
+
 0.7.1 (2019-11-07)
 ------------------
 * Merge pull request `#9 <https://github.com/ipa320/canopen_test_utils/issues/9>`_ from ipa320/floweisshardt-patch-1
