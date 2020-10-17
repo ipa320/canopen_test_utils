@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(canopen_test_utils)
 
+add_compile_options(-lpthread)
+
 find_package(catkin REQUIRED
   COMPONENTS
     canopen_402
