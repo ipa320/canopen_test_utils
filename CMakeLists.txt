@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(canopen_test_utils)
 
-add_compile_options(-lpthread)
+#add_compile_options(-lpthread)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 find_package(catkin REQUIRED
   COMPONENTS
