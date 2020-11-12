@@ -2,8 +2,8 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.3 (2020-11-12)
+------------------
 * Merge pull request `#15 <https://github.com/ipa320/canopen_test_utils/issues/15>`_ from fmessmer/fix_catkin_lint
   remove dashboard launch file
 * remove dashboard launch file
