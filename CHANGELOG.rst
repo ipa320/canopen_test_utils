@@ -2,6 +2,16 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#15 <https://github.com/ipa320/canopen_test_utils/issues/15>`_ from fmessmer/fix_catkin_lint
+  remove dashboard launch file
+* remove dashboard launch file
+* Merge pull request `#13 <https://github.com/ipa320/canopen_test_utils/issues/13>`_ from fmessmer/add_nanotec_mapping
+  add mapping for nanotec
+* add mapping for nanotec
+* Contributors: Felix Messmer, fmessmer, test-terminal
+
 0.7.2 (2020-03-18)
 ------------------
 * Merge pull request `#12 <https://github.com/ipa320/canopen_test_utils/issues/12>`_ from fmessmer/fix_travis_config
