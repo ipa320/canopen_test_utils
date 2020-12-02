@@ -2,6 +2,19 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#14 <https://github.com/ipa320/canopen_test_utils/issues/14>`_ from fmessmer/test_noetic
+  test noetic
+* Merge pull request `#1 <https://github.com/ipa320/canopen_test_utils/issues/1>`_ from lindemeier/test_noetic
+  fix pthread linker error
+* fix pthread linker error
+* set CMAKE_CXX_FLAGS -pthread
+* add_compile_options
+* Bump CMake version to avoid CMP0048 warning
+* add noetic jobs
+* Contributors: Felix Messmer, fmessmer, tsl
+
 0.7.3 (2020-11-12)
 ------------------
 * Merge pull request `#15 <https://github.com/ipa320/canopen_test_utils/issues/15>`_ from fmessmer/fix_catkin_lint
