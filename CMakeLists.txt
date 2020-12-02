@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(canopen_test_utils)
+
+find_package(Threads REQUIRED)
 
 find_package(catkin REQUIRED
   COMPONENTS
@@ -17,6 +19,7 @@ add_executable(canopen_elmo_console
 )
 target_link_libraries(canopen_elmo_console
   ${catkin_LIBRARIES}
+  ${CMAKE_THREAD_LIBS_INIT}
 )
 install(
   TARGETS
