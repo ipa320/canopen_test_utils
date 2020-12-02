@@ -2,8 +2,8 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.4 (2020-12-02)
+------------------
 * Merge pull request `#14 <https://github.com/ipa320/canopen_test_utils/issues/14>`_ from fmessmer/test_noetic
   test noetic
 * Merge pull request `#1 <https://github.com/ipa320/canopen_test_utils/issues/1>`_ from lindemeier/test_noetic
