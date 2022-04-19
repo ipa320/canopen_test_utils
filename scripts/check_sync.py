@@ -12,7 +12,7 @@ sync_maxlen = 1000
 
 sync_data = deque(maxlen=sync_maxlen)
 last_sync = (None,None)
-last_print_clock = time.clock()
+last_print_clock = time.perf_counter()
 last_print_t = None
 last_print_counter = sync_maxlen
 force_print = False
@@ -75,5 +75,5 @@ while True:
         traceback.print_exc()
         exit(1)
 
-printSyncStats(sync_data, last_sync[1] - time.clock())
+printSyncStats(sync_data, last_sync[1] - time.perf_counter())
 
