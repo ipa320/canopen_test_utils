@@ -23,7 +23,7 @@ def hex_to_signed(source):
     if not isinstance(source, str):
         raise ValueError("string type required")
     if 0 == len(source):
-        raise valueError("string is empty")
+        raise ValueError("string is empty")
     sign_bit_mask = 1 << (len(source)*4-1)
     other_bits_mask = sign_bit_mask - 1
     value = int(source, 16)
@@ -91,4 +91,3 @@ if __name__ == "__main__":
             can_id = int(parts[start+1],16)
             data = ''.join(parts[start+3:])
         decode_canopen(can_id,data)
-
