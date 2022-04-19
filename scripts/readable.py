@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys, importlib
 
 if len(sys.argv) < 2:

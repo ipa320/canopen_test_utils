@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 PDOs={
 "RPDO1": [1, ('6040',     "control_word",                 2), ('60FF',     "target_profiled_velocity",     4)],

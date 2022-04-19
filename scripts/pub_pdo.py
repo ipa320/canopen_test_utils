@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import sys, importlib
 import rospy
 from std_msgs.msg import Int16
@@ -32,14 +32,14 @@ def hex_to_signed(source):
 def pub(name, value):
     global pubs
     if not name in pubs:
-        print "adding publisher: ",name
+        print("adding publisher: ",name)
         pubs[name] = rospy.Publisher(name, Int16, queue_size=1000)
     msg = Int16()
     msg.data = hex_to_signed(value)
     pubs[name].publish(msg)
 
 def hex_reverse(data):
-    return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
+    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
 
 def decode_pdo(can_id,data, name, start_can_id):
     i = 0
