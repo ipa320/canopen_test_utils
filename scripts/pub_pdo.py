@@ -39,7 +39,10 @@ def pub(name, value):
     pubs[name].publish(msg)
 
 def hex_reverse(data):
-    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
+    if sys.version_info.major == 2:
+        return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
+    else:
+        return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
 
 def decode_pdo(can_id,data, name, start_can_id):
     i = 0
