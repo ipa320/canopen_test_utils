@@ -4,6 +4,12 @@ import sys
 from collections import deque, defaultdict
 import traceback
 import time
+
+try:
+    from time import clock as perf_counter
+except ImportError:
+    from time import perf_counter
+
 known_nodes=set()
 known_data=set()
 current_data = defaultdict(set)
@@ -12,7 +18,7 @@ sync_maxlen = 1000
 
 sync_data = deque(maxlen=sync_maxlen)
 last_sync = (None,None)
-last_print_clock = time.clock() if sys.version_info.major == 2 else time.perf_counter()
+last_print_clock = perf_counter()
 last_print_t = None
 last_print_counter = sync_maxlen
 force_print = False
@@ -31,7 +37,7 @@ while True:
         line = sys.stdin.readline()
         if not line:
             break
-        now = time.clock()
+        now = perf_counter()
         last_t, last_clock = last_sync
         p = eval(line)
         t = float(eval(p[0]))
@@ -75,8 +81,4 @@ while True:
         traceback.print_exc()
         exit(1)
 
-if sys.version_info.major == 2:
-    printSyncStats(sync_data, last_sync[1] - time.clock())
-else:
-    printSyncStats(sync_data, last_sync[1] - time.perf_counter())
-
+printSyncStats(sync_data, last_sync[1] - perf_counter())

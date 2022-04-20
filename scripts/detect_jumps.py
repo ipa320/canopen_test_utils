@@ -3,16 +3,15 @@
 import sys
 from collections import defaultdict, deque
 import traceback
-if sys.version_info.major == 2:
+from builtins import range
+
+try:
+    from itertools import filterfalse as ifilterfalse
+except ImportError:
     from itertools import ifilterfalse
-else:
-    from itertools import filterfalse as ifiterfalse
 
 def hex_reverse(data):
-    if sys.version_info.major == 2:
-        return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
-    else:
-        return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
+    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
 
 def hex_with_len(val, l):
     return '{0:0{1}x}'.format(val,l)
