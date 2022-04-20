@@ -3,7 +3,11 @@
 import sys
 from collections import defaultdict, deque
 import traceback
-from builtins import range
+
+try:
+    from builtins import range as xrange
+except ImportError:
+    pass
 
 try:
     from itertools import filterfalse as ifilterfalse
@@ -11,7 +15,7 @@ except ImportError:
     from itertools import ifilterfalse
 
 def hex_reverse(data):
-    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
+    return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
 
 def hex_with_len(val, l):
     return '{0:0{1}x}'.format(val,l)

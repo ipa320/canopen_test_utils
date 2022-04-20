@@ -2,7 +2,11 @@
 import sys, importlib
 import rospy
 from std_msgs.msg import Int16
-from builtins import range
+
+try:
+    from builtins import range as xrange
+except ImportError:
+    pass
 
 if len(sys.argv) < 2:
     print("please provide mapping modulde as first argument, e.g schunk_mapping or elmo_mapping");
@@ -40,7 +44,7 @@ def pub(name, value):
     pubs[name].publish(msg)
 
 def hex_reverse(data):
-    return ''.join(reversed([data[i:i+2] for i in range(0, len(data), 2)]))
+    return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
 
 def decode_pdo(can_id,data, name, start_can_id):
     i = 0

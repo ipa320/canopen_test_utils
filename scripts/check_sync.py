@@ -6,9 +6,9 @@ import traceback
 import time
 
 try:
-    from time import clock as perf_counter
-except ImportError:
     from time import perf_counter
+except ImportError:
+    from time import clock as perf_counter
 
 known_nodes=set()
 known_data=set()
