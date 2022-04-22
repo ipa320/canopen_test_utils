@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 from collections import OrderedDict
 import configparser, sys
@@ -28,7 +28,7 @@ def get_mapping(ini, name, writable):
         can_write = 'w' in ini[name]["AccessType"]
     except:
         can_write = False
-        
+
     try:
         can_read = 'r' in ini[name]["AccessType"]
     except:
@@ -36,12 +36,12 @@ def get_mapping(ini, name, writable):
     if (writable and not can_write) or (not writable and not can_read):
         print (name, "is not accesable")
         exit(1)
-            
+
     parts = name.split("sub")
     obj = int(parts[0],16)
     sub = int(parts[1],16) if len(parts) == 2 else 0
     return (obj, sub, bitlengths[int(ini[name]["DataType"],0)])
-    
+
 def set_pdo(ini, writable, nr, objs, transmission):
     if len(objs) > len(set(objs)):
         print ("objetcs are not unique")
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     parser.add_argument("--transmission", type=lambda x:int(x,0),default=1)
     parser.add_argument("--out")
 
-    args = parser.parse_args(args)
+    args = parser.parse_args()
 
 
     out = args.out

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 PDOs={
 "RPDO1": [1, ('6040',     "control_word",                 2), ('6042',     "target_velocity",              2), ('60C1sub1', "target_interpolated_velocity", 4)],

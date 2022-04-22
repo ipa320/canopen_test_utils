@@ -1,9 +1,18 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import sys
 from collections import defaultdict, deque
 import traceback
-from itertools import ifilterfalse
+
+try:
+    from builtins import range as xrange
+except ImportError:
+    pass
+
+try:
+    from itertools import filterfalse as ifilterfalse
+except ImportError:
+    from itertools import ifilterfalse
 
 def hex_reverse(data):
     return ''.join(reversed([data[i:i+2] for i in xrange(0, len(data), 2)]))
@@ -48,7 +57,7 @@ dump_mode = 0
 def dump_context(v, context, mode):
     if mode is 1:
         for c in context:
-            print c
+            print(c)
     elif mode is 2:
         s = hex_reverse(v)
         test = frozenset(ifilterfalse(lambda t: '0000' == t, (s[i:i + 4] for i in range(0, len(s)-2, 2))))
@@ -56,11 +65,11 @@ def dump_context(v, context, mode):
             o = c[-1][0]
             for i in range(0, len(o)-2, 2):
                 if o[i:i + 4] in test:
-                    print '**', o[i:i + 4],
+                    print('**', o[i:i + 4],)
                     break
-            print c
+            print(c)
     else:
-        print "Error: dump mode not set!"
+        print("Error: dump mode not set!")
     print
 while True:
     try:
@@ -81,13 +90,13 @@ while True:
                     old = last[i][k]
                     last[i][k]=val
                     if jump(val, old):
-                        print 't: {}, i: {}, {} = 0x{} <> 0x{}, |{} - {}| = {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old, abs(val-old))
-                        print '#',p
+                        print('t: {}, i: {}, {} = 0x{} <> 0x{}, |{} - {}| = {}'.format(p[0],i, k, v, fmt(old, len(v), False) ,val,old, abs(val-old)))
+                        print('#',p)
                         dump_context(v, context, dump_mode)
                 else:
                     last[i][k]=val
         context.append(p)
     except:
-        print line,
+        print(line,)
         traceback.print_exc()
         break

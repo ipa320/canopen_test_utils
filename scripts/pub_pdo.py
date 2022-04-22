@@ -1,7 +1,12 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import sys, importlib
 import rospy
 from std_msgs.msg import Int16
+
+try:
+    from builtins import range as xrange
+except ImportError:
+    pass
 
 if len(sys.argv) < 2:
     print("please provide mapping modulde as first argument, e.g schunk_mapping or elmo_mapping");
@@ -23,7 +28,7 @@ def hex_to_signed(source):
     if not isinstance(source, str):
         raise ValueError("string type required")
     if 0 == len(source):
-        raise valueError("string is empty")
+        raise ValueError("string is empty")
     sign_bit_mask = 1 << (len(source)*4-1)
     other_bits_mask = sign_bit_mask - 1
     value = int(source, 16)
@@ -32,7 +37,7 @@ def hex_to_signed(source):
 def pub(name, value):
     global pubs
     if not name in pubs:
-        print "adding publisher: ",name
+        print("adding publisher: ",name)
         pubs[name] = rospy.Publisher(name, Int16, queue_size=1000)
     msg = Int16()
     msg.data = hex_to_signed(value)
@@ -91,4 +96,3 @@ if __name__ == "__main__":
             can_id = int(parts[start+1],16)
             data = ''.join(parts[start+3:])
         decode_canopen(can_id,data)
-

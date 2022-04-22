@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import collections
 import socket
 import threading
@@ -18,8 +18,9 @@ if __name__ == "__main__":
             try:
                 with lock:
                     for l in  reversed(data):
-                        connection.sendall(l)
-            except:
+                        connection.sendall(l.encode("utf-8"))  ## pylint: disable=no-member
+            except Exception as e:
+                print(e)
                 pass
             finally:
                 connection.close()

@@ -1,9 +1,15 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import sys
 from collections import deque, defaultdict
 import traceback
 import time
+
+try:
+    from time import perf_counter
+except ImportError:
+    from time import clock as perf_counter
+
 known_nodes=set()
 known_data=set()
 current_data = defaultdict(set)
@@ -12,7 +18,7 @@ sync_maxlen = 1000
 
 sync_data = deque(maxlen=sync_maxlen)
 last_sync = (None,None)
-last_print_clock = time.clock()
+last_print_clock = perf_counter()
 last_print_t = None
 last_print_counter = sync_maxlen
 force_print = False
@@ -23,7 +29,7 @@ def printSyncStats(sync_data, diff):
     mx = max(sync_data) / milliseconds
     avg = sum(sync_data) / len(sync_data)
     hz = 1.0/avg if avg != 0 else 0
-    print "({}) {} Hz [ {} ms <= {} ms <= {} ms ] {} ms".format(time.time(), hz, mn, avg / milliseconds, mx, diff / milliseconds)
+    print("({}) {} Hz [ {} ms <= {} ms <= {} ms ] {} ms".format(time.time(), hz, mn, avg / milliseconds, mx, diff / milliseconds))
     print
 
 while True:
@@ -31,7 +37,7 @@ while True:
         line = sys.stdin.readline()
         if not line:
             break
-        now = time.clock()
+        now = perf_counter()
         last_t, last_clock = last_sync
         p = eval(line)
         t = float(eval(p[0]))
@@ -42,7 +48,7 @@ while True:
                 sync_data.append(t-last_t)
                 missing_nodes = known_nodes - set(current_data.iterkeys())
                 if len(missing_nodes) > 0:
-                    print "!!!! ({}) @ {:.6f} missing data from {}".format(now, t, missing_nodes)
+                    print("!!!! ({}) @ {:.6f} missing data from {}".format(now, t, missing_nodes))
                 #for k,v in current_data.items():
                 #    missig_data = known_data - v
                 #    if len(missig_data) > 0:
@@ -58,7 +64,7 @@ while True:
             while len(d) > 1:
                 k,v,d = d[0], d[1], d[2:]
                 if k in current_data[i] and len(sync_data) > 0:
-                    print "!!!! ({}) @ {:.6f} doubled data '{}' from {}".format(now, t, k, i)
+                    print("!!!! ({}) @ {:.6f} doubled data '{}' from {}".format(now, t, k, i))
                     force_print = True
                 current_data[i].add(k)
                 known_data.add(k)
@@ -71,9 +77,8 @@ while True:
             force_print = False
 
     except:
-        print line,
+        print(line,)
         traceback.print_exc()
         exit(1)
 
-printSyncStats(sync_data, last_sync[1] - time.clock())
-
+printSyncStats(sync_data, last_sync[1] - perf_counter())
