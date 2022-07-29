@@ -2,6 +2,23 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#16 <https://github.com/ipa320/canopen_test_utils/issues/16>`_ from Deleh/fix/python3
+  update to Python 3
+* add pylint directive
+  Co-authored-by: Felix Messmer <felixmessmer@gmail.com>
+* adjust imports
+* import trick to fix python version differences
+* fix python version differences
+* encode sent data and print exception
+* remove deprecated clock() function in favour of perf_counter()
+* fix pylint errors
+* add pylint checks to travis config
+* update shebangs and small adjustments for Python 3
+* update to Python 3
+* Contributors: Deleh, Denis Lehmann, Felix Messmer, fmessmer
+
 0.7.4 (2020-12-02)
 ------------------
 * Merge pull request `#14 <https://github.com/ipa320/canopen_test_utils/issues/14>`_ from fmessmer/test_noetic
