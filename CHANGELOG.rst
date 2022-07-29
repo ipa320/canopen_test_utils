@@ -2,8 +2,8 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.5 (2022-07-29)
+------------------
 * Merge pull request `#16 <https://github.com/ipa320/canopen_test_utils/issues/16>`_ from Deleh/fix/python3
   update to Python 3
 * add pylint directive
