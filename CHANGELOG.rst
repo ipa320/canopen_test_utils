@@ -2,6 +2,15 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#17 <https://github.com/ipa320/canopen_test_utils/issues/17>`_ from fmessmer/ci/gha
+  migrate ci to gha
+* migrate ci to gha
+* remove kinetic jobs
+* fix travis badge
+* Contributors: Felix Messmer, fmessmer
+
 0.7.5 (2022-07-29)
 ------------------
 * Merge pull request `#16 <https://github.com/ipa320/canopen_test_utils/issues/16>`_ from Deleh/fix/python3
