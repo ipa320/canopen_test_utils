@@ -2,8 +2,8 @@
 Changelog for package canopen_test_utils
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.6 (2024-02-19)
+------------------
 * Merge pull request `#17 <https://github.com/ipa320/canopen_test_utils/issues/17>`_ from fmessmer/ci/gha
   migrate ci to gha
 * migrate ci to gha
